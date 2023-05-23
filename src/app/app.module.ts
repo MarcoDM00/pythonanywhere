@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutes } from './app.routes';
 import { GetComponent } from './get/get.component';
 import { PostComponent } from './post/post.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +16,8 @@ import { PostComponent } from './post/post.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(AppRoutes) //serve per importare tutte le routes
   ],
   providers: [],

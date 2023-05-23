@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post',
@@ -6,5 +8,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent {
+  id:number = 0;
+  nome:string = "";
 
+  constructor(private http:HttpClient){}
+
+  clickk() {
+    this.http.post(`https://MarcoDM.pythonanywhere.com`, {"id": this.id, "nome": this.nome}).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
 }
