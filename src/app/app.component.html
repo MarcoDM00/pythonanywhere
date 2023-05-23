@@ -1,0 +1,26 @@
+<!--
+    routerLinkActive:
+        quando il percorso Router di quell'elemento è attivo, assegna la classe CSS assegnata.
+        Es. routerLinkActive="active" assegna la classe CSS 'active' all'elemento in caso sia attivo
+
+    routerLinkActiveOptions:
+        serve a dire se attivare sia il default sia questo elemento.
+        Ad esempio, se si ha il link che finisce con /, è attivo solo il default.
+        Ma navigando in /c1/, sarà attivo sia il default sia C1.
+        Per evitare questo, si passa a questa opzione {exact: true}, così che
+        sia attivo un solo componente alla volta.
+
+    routerLink:
+        serve per assegnare al componente il suo percorso routing.
+
+    [routerLink]:
+        con le quadre, possiamo sia assegnare il percorso routing sia passare
+        eventuali parametri.
+
+-->
+<ul>
+  <li><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+  <li><a [routerLink]="['/post', '001']" routerLinkActive="active">News</a></li>
+</ul>
+
+<router-outlet></router-outlet>
