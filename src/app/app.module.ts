@@ -21,6 +21,6 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forRoot(AppRoutes) //serve per importare tutte le routes
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent, PostComponent]
 })
 export class AppModule { }

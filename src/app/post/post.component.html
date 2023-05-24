@@ -1,3 +1,48 @@
 <input type="number" [(ngModel)]="id" placeholder="ID">
 <input type="text" [(ngModel)]="nome" placeholder="Nome">
-<button (click)="clickk()">Inserisci</button>
+<button (click)="clickk(null)">Inserisci</button>
+
+<form #f="ngForm" name="theForm" (submit)="clickk(f)">
+    <div class="form-group">
+      <label>Price</label>
+      <input type="number"
+            class="form-control"
+            name="id"
+            required
+            min="1"
+            max="9999"
+            [(ngModel)]="id"
+            #idEl="ngModel"
+            pattern="([1-9]|[1-9][0-9]{1,3})">
+            <!--
+              ([1-9]|[1-9][0-9]{1,4})
+              [1-9] = da 1 a 9
+              | = or
+              [1-9][0-9] = da 10 a 99
+              {1,4} = da 1 a 4 volte
+              [1-9][0-9][0-9] = da 10 a 999
+              [1-9][0-9][0-9][0-9] = da 10 a 9999
+              [1-9][0-9][0-9][0-9][0-9] = da 10 a 99999-->
+      <span style="color: red" *ngIf="idEl.errors?.['required'] && idEl.touched">
+        L'ID è richiesto
+      </span>
+      <span style="color: red" *ngIf="idEl.errors?.['pattern'] && idEl.touched">
+        ID può essere solo da 1 a 9999
+      </span>
+    </div>
+
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text"
+              class="form-control"
+              name="nome"
+              [(ngModel)]="nome"
+              #nomeEl="ngModel"
+              required>
+        <span style="color: red" *ngIf="nomeEl.errors?.['required'] && nomeEl.touched">
+          Il nome è richiesto
+        </span>
+    </div>
+
+    <button [disabled]="f.invalid">Add</button>
+</form>
