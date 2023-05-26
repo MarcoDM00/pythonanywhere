@@ -1,4 +1,14 @@
-<p *ngFor="let e of elementi">
-    ID: {{e.id}}
-    Nome: {{e.nome}}
-</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of elementi">
+        <th>{{e.id}}</th>
+        <td>{{e.nome}}</td>
+      </tr>
+    </tbody>
+</table>

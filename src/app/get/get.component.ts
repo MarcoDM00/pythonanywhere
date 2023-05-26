@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./get.component.css']
 })
 export class GetComponent implements OnInit{
-  elementi:{id:number, nome:string}[] = [];
+  elementi = [];
 
   constructor(private http:HttpClient) {}
 
